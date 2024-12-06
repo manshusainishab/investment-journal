@@ -1,0 +1,30 @@
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .tabs button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  section {
+    margin: 20px 0;
+  }
+  
+  h3, h4 {
+    margin: 10px 0;
+  }
+  
+  textarea, input, select {
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+  }
+  
