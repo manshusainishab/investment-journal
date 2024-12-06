@@ -72,28 +72,24 @@ export const getUserDecisions = async (userId) => {
   }
 };
 
-// Fetch AI insights based on user past decisions and a prompt
+
 export const fetchAIInsights = async (userId, prompt) => {
   console(userId,prompt);
   try {
-    // Fetch the user's past decisions from Firestore
     const pastDecisions = await getUserDecisions(userId);
     
-    // Format the past decisions as needed for the AI model
     const pastDecisionsFormatted = pastDecisions.map(decision => 
       `${decision.decisionName}: ${decision.decisionOutcome}`).join("\n");
 
-    // Construct a prompt for Gemini with both past decisions and user input
     const fullPrompt = `
       Based on the following past decisions:\n${pastDecisionsFormatted}\n
       and this current prompt: "${prompt}", provide AI-driven insights.`;
 
-    // Fetch AI insights from the Gemini API
     const response = await fetch('https://gemini-api-url.com/insights', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `AIzaSyA_2FqjklUyuD0xIhzR3z4vyQxcMwQ3ypw`,  // Replace with your Gemini API key
+        'Authorization': ``,
       },
       body: JSON.stringify({
         prompt: fullPrompt,

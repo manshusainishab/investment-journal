@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { loginUser } from './firebase';
-import './common.css';  // Import the common CSS file
+import './common.css';
 
 function SignIn({ setUser }) {
   const [email, setEmail] = useState('');

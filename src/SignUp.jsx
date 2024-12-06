@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { registerUser } from './firebase';
-import './common.css';  // Import the common CSS file
+import './common.css'; 
 import { Link } from 'react-router-dom';
 
 function SignUp({ setUser }) {

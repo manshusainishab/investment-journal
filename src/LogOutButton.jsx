@@ -1,4 +1,3 @@
-// src/LogOutButton.jsx
 import React from 'react';
 import { logOut } from './auth';
 

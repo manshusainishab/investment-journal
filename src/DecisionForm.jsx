@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { db } from "./firebase"; // Firestore instance
+import { db } from "./firebase"; 
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebase"; // Firebase Auth instance
+import { auth } from "./firebase";
 import './decision-form.css';
 
 const DecisionForm = () => {
-  const [user] = useAuthState(auth); // Get the current logged-in user
+  const [user] = useAuthState(auth);
   const [formData, setFormData] = useState({
     stockSymbol: "",
     action: "Buy",
@@ -33,12 +33,12 @@ const DecisionForm = () => {
       const decisionsRef = collection(db, "users", user.uid, "decisions");
       await addDoc(decisionsRef, { 
         ...formData,
-        userId: user.uid,  // Ensure the userId is stored in the document
-        timestamp: Date.now(), // Adding timestamp for better tracking
+        userId: user.uid,  
+        timestamp: Date.now(),
       });
       alert("Decision logged successfully!");
       
-      // Reset form after successful submission
+      
       setFormData({
         stockSymbol: "",
         action: "Buy",

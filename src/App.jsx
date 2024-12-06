@@ -24,7 +24,7 @@ function App() {
       <div>
         {!user ? (
           <Routes>
-            {/* Redirect logged-out users to sign-in */}
+           
             <Route path="/" element={<SignIn setUser={setUser} />} />
             <Route path="/signup" element={<SignUp setUser={setUser} />} />
             <Route path="*" element={<Navigate to="/" />} />
@@ -33,7 +33,7 @@ function App() {
           <>
             <button onClick={handleLogout} style={{ margin: '10px' }}>Logout</button>
             <Routes>
-              {/* Redirect logged-in users to dashboard */}
+              
               <Route path="/dashboard" element={<ReflectiveDashboard />} />
               <Route path="/log-decision" element={<DecisionForm user={user} />} />
               <Route path="*" element={<Navigate to="/dashboard" />} />

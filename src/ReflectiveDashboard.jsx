@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "./firebase"; // Firebase Auth and Firestore instance
+import { auth, db } from "./firebase";
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import { fetchAIInsights } from "./firebase"; 
 
 const ReflectiveDashboard = () => {
-  const [user] = useAuthState(auth); // Get current logged-in user
-  const [currentSection, setCurrentSection] = useState("logDecision"); // Control active section
+  const [user] = useAuthState(auth); 
+  const [currentSection, setCurrentSection] = useState("logDecision"); 
 
-  // State for investment decision form
+ 
   const [formData, setFormData] = useState({
     stockSymbol: "",
     action: "Buy",
@@ -19,18 +19,16 @@ const ReflectiveDashboard = () => {
     reactionToDrop: "",
   });
 
-  // State for AI insights
+  
   const [aiInsights, setAIInsights] = useState(null);
 
-  // State for past decisions
+
   const [pastDecisions, setPastDecisions] = useState([]);
 
-  // Handle form data changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission (Log investment decision)
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!user) {
@@ -90,7 +88,7 @@ const ReflectiveDashboard = () => {
     <div>
       <h2>Reflective Dashboard</h2>
 
-      {/* Tabs for navigation */}
+      
       <div className="tabs">
         <button onClick={() => setCurrentSection("logDecision")}>
           Log Investment Decision
@@ -103,7 +101,7 @@ const ReflectiveDashboard = () => {
         </button>
       </div>
 
-      {/* Section 1: Log Investment Decision */}
+     
       {currentSection === "logDecision" && (
         <div>
           <form onSubmit={handleSubmit}>
@@ -184,7 +182,7 @@ const ReflectiveDashboard = () => {
         </div>
       )}
 
-      {/* Section 2: Past Decisions */}
+    
       {currentSection === "pastDecisions" && (
         <div>
           <h3>Your Past Decisions</h3>
@@ -203,12 +201,12 @@ const ReflectiveDashboard = () => {
         </div>
       )}
 
-      {/* Section 3: AI Insights */}
+      
 {currentSection === "aiInsights" && (
   <div>
     <h3>AI Insights</h3>
     
-    {/* Show loading state if insights are still being fetched */}
+    
     {!aiInsights ? (
       <p>Feature Coming Soon</p>
     ) : error ? (
