@@ -53,6 +53,7 @@ const ReflectiveDashboard = () => {
         downsideRisk: "",
         reactionToDrop: "",
       });
+      fetchPastDecisions();
     } catch (error) {
       alert("Failed to save decision.");
     }
